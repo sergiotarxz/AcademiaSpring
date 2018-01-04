@@ -1,0 +1,8 @@
+salesianas/academia/entity/Profesor.class
+salesianas/academia/entity/ProfesorMateria.class
+salesianas/academia/entity/Alumno.class
+salesianas/academia/entity/Curso.class
+salesianas/academia/AcademiaApplication.class
+salesianas/academia/entity/ProfesorCurso.class
+salesianas/academia/entity/MateriaCurso.class
+salesianas/academia/entity/Materia.class

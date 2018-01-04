@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+
+  <title>Login</title>
+  
+  <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  
+  <style type="text/css">
+    body {
+    background-color: #5677fc;
+    font-family: verdana;
+    }
+    #botones{
+    column-count:2;
+    color: #337ab7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" align="center">
+    
+    <form class="form-signin" action="/login" th:object="${usuario}" method="post" style="margin: 0 auto; margin-top: 15%">
+      
+      <h2 class="form-signin-heading">Todo Anuncios</h2>
+      <label for="inputEmail" class="sr-only">Usuario</label>
+      <input type="text" class="form-control" th:field="*{usuario}" placeholder="usuario" name="usuario" id="usuario" />
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" class="form-control" th:field="*{contrasena}" placeholder="Contraseña" name="contraseña" id="contraseña" />
+      <div id="botones">
+	<input class="btn btn-lg btn-primary btn-block" type="submit">
+	  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+	  Entrar
+	</input>
+	<button class="btn btn-lg btn-primary btn-block" type="submit">
+	  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+	  Registrarse
+	</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
