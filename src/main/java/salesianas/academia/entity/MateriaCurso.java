@@ -10,7 +10,9 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+
 import java.util.Set;
+import java.util.Date;
 
 @Entity
 @Table(name = "materias_cursos", uniqueConstraints = @UniqueConstraint( columnNames = { "id" } ))
