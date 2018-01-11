@@ -28,19 +28,28 @@ public class ProfesorCurso {
     @JoinColumn(name = "id_profesor")
     private Profesor profesor;
 
+    public ProfesorCurso() {
+    }
+
+    public ProfesorCurso(Long id, Curso curso, Profesor profesor) {
+        this.id = id;
+        this.curso = curso;
+        this.profesor = profesor;
+    }
+
     public Profesor getProfesor() {
-	return this.profesor;
+	    return this.profesor;
     }
 
     public void setProfesor(Profesor profesor) {
-	this.profesor = profesor;
+	    this.profesor = profesor;
     }
     
     public Curso getCurso() {
-	return curso;
+    	return this.curso;
     }
 
     public void setCurso(Curso curso) {
-	this.curso = curso;
+	    this.curso = curso;
     }
 }

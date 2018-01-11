@@ -26,34 +26,64 @@ public class Curso {
 
     @OneToMany
     @JoinColumn(name = "id_curso")
-    private Set<ProfesorCurso> ProfesorCurso;
+    private Set<ProfesorCurso> profesoresCurso;
 
     @OneToMany
     @JoinColumn(name = "id_curso")
-    private Set<ProfesorMateria> profesorMateria;
-    
+    private Set<MateriaCurso> materiasCurso;
+
     @OneToMany
     @JoinColumn(name = "id_curso")
     private Set<Alumno> alumnos;
     
-    public Curso(Long id, String nombre) {
-	this.id = id;
-	this.nombre = nombre;
+    public Curso(Long id, String nombre, Set<Alumno> alumnos, Set<ProfesorCurso> profesoresCurso, Set<MateriaCurso> materiasCurso) {
+    	this.id = id;
+	    this.nombre = nombre;
+        this.alumnos = alumnos;
+        this.profesoresCurso = profesoresCurso;
+        this.materiasCurso = materiasCurso;
     }
 
     public Curso() {
     }
 
     public Long getId() {
-	return this.id;
+	    return this.id;
     }
 
     public void setId() {
-	this.id = id;
+	    this.id = id;
     }
 
     public String getNombre() {
-	return nombre;
+	    return nombre;
     }
     
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Set<Alumno> getAlumnos() {
+        return this.alumnos;
+    }    
+
+    public void setAlumnos(Set<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
+    public Set<ProfesorCurso> getProfesoresCurso() {
+        return this.profesoresCurso;
+    } 
+    
+    public void setProfesoresCurso(Set<ProfesorCurso> profesoresCurso) { 
+        this.profesoresCurso = profesoresCurso;
+    }
+
+    public Set<MateriaCurso> getMateriasCurso() {
+        return materiasCurso; 
+    }
+
+    public void setMateriasCurso(Set<MateriaCurso> materiasCurso) {
+        this.materiasCurso = materiasCurso;
+    }
 }

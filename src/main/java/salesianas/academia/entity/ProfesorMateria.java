@@ -27,28 +27,37 @@ public class ProfesorMateria {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_profesor")
     private Profesor profesor;
+    
+    public ProfesorMateria() {
+    }
+
+    public ProfesorMateria(Long id, Materia materia, Profesor profesor) {
+        this.id = id;
+        this.materia = materia;
+        this.profesor = profesor;
+    }
 
     public Long getId() {
-	return this.id;
+	    return this.id;
     }
 
     public void setId(Long id) {
-	this.id = id;
+	    this.id = id;
     }
     
     public Profesor getProfesor() {
-	return this.profesor;
+    	return this.profesor;
     }
 
     public void setProfesor(Profesor profesor) {
-	this.profesor = profesor;
+	    this.profesor = profesor;
     }
 
     public Materia getMateria() {
-	return this.materia;
+	    return this.materia;
     }
 
     public void setMateria(Materia materia) {
-	this.materia = materia;
+	    this.materia = materia;
     }
 }

@@ -1,5 +1,8 @@
 package salesianas.academia.entity;
 
+import salesianas.academia.entity.ProfesorCurso;
+import salesianas.academia.entity.ProfesorMateria;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
@@ -8,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 
 import java.util.Set;
 
@@ -37,68 +42,79 @@ public class Profesor {
     @OneToMany(mappedBy="profesor")
     private Set<ProfesorMateria> profesorMaterias;
     
-    public Profesor(Long id, String nombre, String apellidos, String telefono, String email, String dni) {
-	this.id = id;
-	this.nombre = nombre;
-	this.apellidos = apellidos;
-	this.telefono = telefono;
-	this.email = email;
-	this.dni = dni;
+    @OneToOne(mappedBy="userEntity")
+    private Usuario usuario;
+
+    public Profesor(Long id, String nombre, String apellidos, String telefono, String email, String dni, Set<ProfesorMateria> profesorMaterias) {
+	    this.id = id;
+	    this.nombre = nombre;
+	    this.apellidos = apellidos;
+    	this.telefono = telefono;
+    	this.email = email;
+        this.dni = dni;
+        this.profesorMaterias = profesorMaterias;
     }
 
     public Profesor() {
     }
 
-    @OneToMany(mappedBy = "profesor")
+    public boolean esProfesor() {
+        return true;
+    }
+
+    public void setProfesorMaterias(Set<ProfesorMateria> profesorMateria) {
+    	this.profesorMaterias = profesorMaterias;
+    }
+
     public Set<ProfesorMateria> getProfesorMaterias(){
-	return this.profesorMaterias;
+	    return this.profesorMaterias;
     }
     
     public Long getId() {
-	return this.id;
+	    return this.id;
     }
 
     public void setId(Long id) {
-	this.id = id;
+	    this.id = id;
     }
     
     public String getNombre() {
-	return this.nombre;
+    	return this.nombre;
     }
 
     public void setNombre(String nombre) {
-	this.nombre = nombre;
+	    this.nombre = nombre;
     }
 
     public String getApellidos() {
-	return this.apellidos;
+	    return this.apellidos;
     }
 
     public void setApellidos(String apellidos) {
-	this.apellidos = apellidos;
+    	this.apellidos = apellidos;
     }
 
     public String getTelefono() {
-	return this.telefono;
+	    return this.telefono;
     }
 
     public void setTelefono(String telefono) {
-	this.telefono = telefono;
+	    this.telefono = telefono;
     }
 
     public String getEmail() {
-	return this.email;
+	    return this.email;
     }
 
     public void setEmail() {
-	this.email = email;
+	    this.email = email;
     }
 
     public String getDni() {
-	return this.dni;
+	    return this.dni;
     }
 
     public void setDni() {
-	this.dni = dni;
+	    this.dni = dni;
     }
 }
