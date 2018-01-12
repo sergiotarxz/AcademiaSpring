@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "materia", uniqueConstraints = @UniqueConstraint( columnNames = { "id" } ))
 public class Materia {
+
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
@@ -26,5 +27,44 @@ public class Materia {
 
     @OneToMany
     @JoinColumn(name = "id_materia")
-    private Set<ProfesorMateria> profesorMateria;
+    private Set<ProfesorMateria> profesoresMateria;
+    
+    @OneToMany
+    @JoinColumn(name = "id_materia")
+    private Set<MateriaCurso> materiaCursos;
+
+    public Materia() {
+    }
+
+    public Materia(Long id, String nombre, Set<ProfesorMateria> profesoresMateria, Set<MateriaCurso> materiaCursos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.profesoresMateria = profesoresMateria;
+        this.materiaCursos = materiaCursos;
+    }
+    
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId() {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public Set<ProfesorMateria> getProfesoresMateria() {
+        return this.profesoresMateria;
+    }
+
+    public void setProfesoresMateria(Set<ProfesorMateria> profesoresMateria) {
+        this.profesoresMateria = profesoresMateria;
+    }
+
 }
