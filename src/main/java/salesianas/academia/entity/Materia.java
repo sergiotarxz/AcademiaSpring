@@ -47,7 +47,7 @@ public class Materia {
         return this.id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -66,5 +66,12 @@ public class Materia {
     public void setProfesoresMateria(Set<ProfesorMateria> profesoresMateria) {
         this.profesoresMateria = profesoresMateria;
     }
+    
+    public Set<MateriaCurso> getMateriaCursos() {
+        return this.materiaCursos;
+    }
 
+    public void setMateriaCursos(Set<MateriaCurso> materiaCursos) {
+        this.materiaCursos = materiaCursos;
+    }
 }

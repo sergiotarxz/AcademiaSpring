@@ -67,7 +67,7 @@ public class ProfesorModel {
         return this.email;
     }
 
-    public void setEmail() {
+    public void setEmail(String email) {
         this.email = email;
     }
     
@@ -75,7 +75,7 @@ public class ProfesorModel {
         return this.dni;
     }    
     
-    public void setDni() {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 

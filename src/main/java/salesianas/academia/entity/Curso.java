@@ -51,7 +51,7 @@ public class Curso {
 	    return this.id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
 	    this.id = id;
     }
 
