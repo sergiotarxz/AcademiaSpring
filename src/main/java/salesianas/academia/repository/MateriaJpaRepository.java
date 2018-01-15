@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
 public interface MateriaJpaRepository extends JpaRepository<Materia, Serializable> {
     public abstract Materia findById(Long id);
     public List<Materia> findByNombre(String nombre);
+
+    public void deleteById(Long id); 
 }

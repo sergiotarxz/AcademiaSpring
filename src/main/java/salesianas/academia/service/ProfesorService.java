@@ -9,7 +9,7 @@ public interface ProfesorService {
 	
 	public abstract Profesor addProfesor(Profesor profesor) ;
     public abstract List<Profesor> listAllProfesor();
-    public abstract int removeProfesor(int id);
+    public abstract void removeProfesor(Long id);
     public abstract Profesor updateProfesor(Profesor profesor);
 	
 }

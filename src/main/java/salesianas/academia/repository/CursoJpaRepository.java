@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface CursoJpaRepository extends JpaRepository<Curso, Serializable> {
     public abstract Curso findById(Long id);
     public abstract List<Curso> findByNombre(String nombre);
+
+    public abstract Curso deleteById(Long id);
 } 
