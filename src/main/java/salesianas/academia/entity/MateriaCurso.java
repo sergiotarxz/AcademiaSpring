@@ -39,8 +39,17 @@ public class MateriaCurso {
     @JoinColumn(name = "id_curso")
     private Curso curso;
     
+    public MateriaCurso() {
+    }
+
+    public MateriaCurso(Long id, Materia materia, Curso curso) {
+        this.id = id;
+        this.materia = materia;
+        this.curso = curso;
+    }
+
     public Long getId() {
-	return this.id;
+	    return this.id;
     }
 
     public void setId(Long id) {

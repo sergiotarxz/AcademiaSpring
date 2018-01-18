@@ -18,6 +18,14 @@ public class ProfesorCursoModel {
         this.profesor = profesor;
     }
 
+    public Long getId() {
+        return this.id;            
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Curso getCurso() {
         return this.curso;
     }
