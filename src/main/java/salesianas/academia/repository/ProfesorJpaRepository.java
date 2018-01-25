@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface ProfesorJpaRepository extends JpaRepository<Profesor, Serializable> {
 
     public abstract Profesor findById(Long id);
-	public abstract List<Profesor> findByNombre(String nombre);
+    public abstract List<Profesor> findByNombre(String nombre);
 	public abstract List<Profesor> findByApellidos(String apellidos);
 	public abstract List<Profesor> findByTelefono(String Telefono);
 	public abstract List<Profesor> findByEmail(String email);

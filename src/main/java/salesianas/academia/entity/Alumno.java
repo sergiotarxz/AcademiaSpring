@@ -10,6 +10,7 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 
 import java.util.Date;
 
@@ -40,6 +41,10 @@ public class Alumno {
     @Column(name = "email", unique = false, nullable = false, length = 30)
     private String email;
     
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     public Alumno(Long id, String nombre, String apellidos, String telefono, Date fechaNacimiento, String email, Curso curso) {
     	this.id = id;
     	this.nombre = nombre;

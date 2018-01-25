@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 import java.util.Set;
 
@@ -30,9 +31,11 @@ public class Usuario {
     private String passwd;
 
     @OneToOne(mappedBy="usuario")
+    @JoinColumn(name="profesor_id")
     private Profesor profesor;
     
     @OneToOne(mappedBy="usuario")
+    @JoinColumn(name="alumno_id")
     private Alumno alumno;
 
     private boolean admin;

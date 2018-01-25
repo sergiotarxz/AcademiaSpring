@@ -12,7 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 
 import java.util.Set;
 
@@ -42,7 +43,8 @@ public class Profesor {
     @OneToMany(mappedBy="profesor")
     private Set<ProfesorMateria> profesorMaterias;
     
-    @OneToOne(mappedBy="userEntity")
+    @OneToOne
+    @JoinColumn(name="usuario_id")
     private Usuario usuario;
 
     public Profesor(Long id, String nombre, String apellidos, String telefono, String email, String dni, Set<ProfesorMateria> profesorMaterias) {

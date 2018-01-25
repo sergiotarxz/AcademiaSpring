@@ -1,5 +1,7 @@
 package salesianas.academia.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import salesianas.academia.entity.Profesor;
 import salesianas.academia.repository.ProfesorJpaRepository;
 import salesianas.academia.service.ProfesorService;
 
+@Service("ProfesorService")
 public class ProfesorServiceImpl implements ProfesorService {
 
     @Autowired
@@ -26,7 +29,7 @@ public class ProfesorServiceImpl implements ProfesorService {
     }
 
     @Override
-    public void removeProfesor(Long id) {
+    public void removeProfesorById(Long id) {
         profesorJpaRepository.deleteById(id);
     }
 
