@@ -1,0 +1,340 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="IMG/libro.png">
+
+        <title>Cursos</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- CSS -->
+
+
+        <script>
+            function doSearch()
+            {
+                var tableReg = document.getElementById('datos');
+                var searchText = document.getElementById('searchTerm').value.toLowerCase();
+                var cellsOfRow = "";
+                var found = false;
+                var compareWith = "";
+
+                // Recorremos todas las filas con contenido de la tabla
+                for (var i = 1; i < tableReg.rows.length; i++)
+                {
+                    cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                    found = false;
+                    // Recorremos todas las celdas
+                    for (var j = 0; j < cellsOfRow.length && !found; j++)
+                    {
+                        compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                        // Buscamos el texto en el contenido de la celda
+                        if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+                        {
+                            found = true;
+                        }
+                    }
+                    if (found)
+                    {
+                        tableReg.rows[i].style.display = '';
+                    } else {
+                        // si no ha encontrado ninguna coincidencia, esconde la
+                        // fila de la tabla
+                        tableReg.rows[i].style.display = 'none';
+                    }
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <div>
+            <nav class="navbar navbar-default" role="navigation" >
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Desplegar navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="admin.html">Administración</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="profesores.html">Profesores</a></li>
+                        <li><a href="alumnos.html">Alumnos</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                Cursos <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="cursos.html">Crear cursos</a></li>
+                                <li><a href="admincurso.html">Administrar cursos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="materias.html">Materias</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html">Desconectar</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <form style="margin-left: 10px" >
+                        <input id="searchTerm" type="text" onkeyup="doSearch()" /> <span class="glyphicon glyphicon-search"> </span>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Curso</a>
+                </div>
+            </div>
+            <div class="row">
+                <div style="overflow-x:auto;" class="col-sm-6">
+                    <p>
+                    <table id="datos"  class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Curso</th>
+                        </tr>
+                        <tr>
+                            <th>id</th>
+                            <th>nombre de prueba</th>
+                            <th><a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#myModalListar"><span class="glyphicon glyphicon-list"></span></a><a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#myModalAñadirMaterias"><span class="glyphicon glyphicon-plus"></span></a></th>
+                        </tr>
+                        <tr>
+
+                        </tr>
+
+                    </table>
+                    </p>
+
+                </div>
+                <div style="overflow-x:auto;" class="col-sm-6">
+                    <p>
+                    <table id="datos"  class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Profesor</th>
+                        </tr>
+                        <tr>
+                            <th><a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#myModalProfe"><span class="glyphicon glyphicon-plus"></span></a></th>
+                        </tr>
+                        <tr>
+
+                        </tr>
+
+                    </table>
+                    </p>
+                    <p>
+                    <table id="datos"  class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Alumno</th>
+                        </tr>
+                        <tr>
+
+                            <th><a href="#" class="btn btn-xs btn-info" data-toggle="modal" data-target="#myModalAl"><span class="glyphicon glyphicon-plus"></span></a></th>
+                        </tr>
+                        <tr>
+
+                        </tr>
+
+                    </table>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Añadir Curso</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" >
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Curso</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="nombreMateria" placeholder="nombre del curso">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">Añadir</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 2 -->
+            <div id="myModalProfe" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Añadir Profesor</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div style="overflow-x:auto;" class="col-sm-6">
+                                <p>
+                                <table id="datos"  class="table table-striped">
+                                    <tr>
+                                        <th>ID</th><th>Profesor</th>
+                                    </tr>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>nombre de prueba</th>
+                                        <th><a href="#" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span></a></th>
+                                    </tr>
+                                    <tr>
+
+                                    </tr>
+
+                                </table>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- modal 3 -->
+                <div id="myModalAl" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Añadir Alumno</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="overflow-x:auto;" class="col-sm-6">
+                                    <p>
+                                    <table id="datos"  class="table table-striped">
+                                        <tr>
+                                            <th>ID</th><th>Alumno</th>
+                                        </tr>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>nombre de prueba</th>
+                                            <th><a href="#" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span></a></th>
+                                        </tr>
+                                        <tr>
+
+                                        </tr>
+
+                                    </table>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal 4 -->
+                <div id="myModalAñadirMaterias" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Añadir Materias</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="overflow-x:auto;" class="col-sm-6">
+                                    <p>
+                                    <table id="datos"  class="table table-striped">
+                                        <tr>
+                                            <th>ID</th><th>Materia</th>
+                                        </tr>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>nombre de prueba</th>
+                                            <th><a href="#" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span></a></th>
+                                        </tr>
+                                        <tr>
+
+                                        </tr>
+
+                                    </table>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal 5 -->
+                <div id="myModalListar" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Listar Materia</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="overflow-x:auto;" class="col-sm-6">
+                                    <p>
+                                    <table id="datos"  class="table table-striped">
+                                        <tr>
+                                            <th>ID</th><th>Materia</th>
+                                        </tr>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>nombre de prueba</th>
+                                        </tr>
+                                        <tr>
+
+                                        </tr>
+
+                                    </table>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </body>
+                </html>

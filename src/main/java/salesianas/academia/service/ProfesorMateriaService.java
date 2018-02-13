@@ -1,4 +1,6 @@
-package salesianas.academia.repository;
+package salesianas.academia.service;
+
+
 
 import org.springframework.stereotype.Service;
 

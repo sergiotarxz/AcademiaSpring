@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import salesianas.academia.entity.Materia;
 import salesianas.academia.repository.MateriaJpaRepository;
 import salesianas.academia.service.MateriaService;
 
+@Service("MateriaService")
 public class MateriaServiceImpl implements MateriaService {
 
     @Autowired

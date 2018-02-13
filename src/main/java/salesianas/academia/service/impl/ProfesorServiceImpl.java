@@ -1,6 +1,7 @@
 package salesianas.academia.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import salesianas.academia.repository.ProfesorJpaRepository;
 import salesianas.academia.service.ProfesorService;
 
 @Service("ProfesorService")
+@Transactional
 public class ProfesorServiceImpl implements ProfesorService {
 
     @Autowired
@@ -37,4 +39,9 @@ public class ProfesorServiceImpl implements ProfesorService {
     public Profesor updateProfesor(Profesor profesor) {
         return profesorJpaRepository.save(profesor);
     }
+
+	@Override
+	public Profesor findByid(long id) {
+		return profesorJpaRepository.findById(id);
+	}
 }

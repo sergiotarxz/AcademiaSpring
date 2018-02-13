@@ -18,5 +18,5 @@ public interface ProfesorJpaRepository extends JpaRepository<Profesor, Serializa
 	public abstract List<Profesor> findByEmail(String email);
 	public abstract List<Profesor> findByDni(String dni);
 
-    public abstract Profesor deleteById(Long id);
+    public abstract void deleteById(Long id);
 }

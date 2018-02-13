@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="IMG/libro.png" />
+
+<title>Modificar Profesores</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+
+	<h4 class="modal-title">Editar Profesor</h4>
+
+				<form class="form-horizontal" action="#" th:action="@{/profesores/update}"
+				th:object="${profesor}" method="get">
+						<input type="hidden" class="form-control" id="id" th:value="${id}" th:field="*{id}" />
+					<div class="form-group">
+						<label class="control-label col-sm-2">Nombre</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="nombre"
+								placeholder="nombre" th:value="${nombre}" th:field="*{nombre}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">Apellidos</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="apellido"
+								placeholder="Apellidos" th:value="${apellidos}" th:field="*{apellidos}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">Telefono</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="Telefono"
+								placeholder="Telefono" th:value="${telefono}" th:field="*{telefono}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">DNI</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dni"
+								placeholder="dni" th:value="${dni}" th:field="*{dni}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="Email"
+								placeholder="Email" th:value="${email}" th:field="*{email}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Editar</button>
+						</div>
+					</div>
+				</form>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+
+</body>

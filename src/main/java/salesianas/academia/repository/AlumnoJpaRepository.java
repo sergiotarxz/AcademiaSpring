@@ -19,5 +19,5 @@ public interface AlumnoJpaRepository extends JpaRepository<Alumno, Serializable>
     public abstract List<Alumno> findByFechaNacimiento(Date fechaNacimiento);
     public abstract List<Alumno> findByEmail(String email);
 
-    public abstract Alumno deleteById(Long id);
+    public abstract  Alumno deleteById(Long id);
 }
