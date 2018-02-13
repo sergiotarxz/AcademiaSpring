@@ -47,7 +47,7 @@ public class ProfesorController {
 
     @GetMapping("/update")
     public String updateProfesor(@ModelAttribute("profesor") Profesor profesor) {
-        profesorService.updateProfesor(profesor);
+        profesorService.addProfesor(profesor);
         return "redirect:/profesores/view";
     }
     

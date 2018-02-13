@@ -79,7 +79,7 @@
                    <th th:text="${profesor.email}"></th>
                    <th th:text="${profesor.dni}"></th>
                    <th><a  th:href="@{/profesores/delete?id=__${profesor.id}__}" href="#" class="btn btn-xs btn-danger"> <span class="glyphicon glyphicon-trash"></span></a>
-                       <a href="#"  th:object="${profesor}"  th:onclick="'editar(\'' + ${profesor.id} + '\');'"  data-toggle="modal" data-target="#modalEdit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span>  </a>   </th>    
+			   <a href="#"  th:object="${profesor}"  th:onclick="'editar(\'' + ${profesor.id} + '\',\'' + ${profesor.nombre} + '\',\'' + ${profesor.apellidos} + '\',\'' + ${profesor.telefono} + '\',\'' + ${profesor.email} + '\',\'' + ${profesor.dni} + '\');'"  data-toggle="modal" data-target="#modalEdit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span>  </a>   </th>    
 				</tr>
 			</table>
 
@@ -111,7 +111,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2">Apellidos</label>
 						<div class="col-sm-10">
-							<input required="required" type="text" class="form-control" id="apellido"
+							<input required="required" type="text" class="form-control" id="apellidos"
 								placeholder="Apellidos" th:field="*{apellidos}" />
 						</div>
 					</div>
@@ -132,7 +132,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2">Email</label>
 						<div class="col-sm-10">
-							<input required="required" type="email" class="form-control" id="Email"
+							<input required="required" type="email" class="form-control" id="email"
 								placeholder="Email" th:field="*{email}" />
 						</div>
 					</div>
@@ -165,40 +165,36 @@
 			<div class="modal-body">
 				<form class="form-horizontal" action="#" th:action="@{/profesores/update}"
 				th:object="${profesor}" method="get">
-						<input type="hidden" class="form-control" id="id" th:value="${id}" th:field="*{id}" />
+						<input type="hidden" class="form-control" id="id" th:field="*{id}" />
 					<div class="form-group">
 						<label class="control-label col-sm-2">Nombre</label>
 						<div class="col-sm-10">
-							<input required="required" type="text" class="form-control" id="nombre"
-								placeholder="nombre" th:value="${nombre}" th:field="*{nombre}" />
+							<input required="required" type="text" class="form-control" id="nombre" placeholder="nombre" th:field="*{nombre}" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">Apellidos</label>
 						<div class="col-sm-10">
-							<input required="required" type="text" class="form-control" id="apellido"
-								placeholder="Apellidos" th:value="${apellidos}" th:field="*{apellidos}" />
+							<input required="required" type="text" class="form-control" id="apellidos" placeholder="Apellidos" th:field="*{apellidos}" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">Telefono</label>
 						<div class="col-sm-10">
-							<input required="required" type="number" class="form-control" id="Telefono"
-								placeholder="Telefono" th:value="${telefono}" th:field="*{telefono}" />
+							<input required="required" type="number" class="form-control" id="telefono" placeholder="Telefono" th:field="*{telefono}" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">DNI</label>
 						<div class="col-sm-10">
-							<input required="required" th:maxlength="9" type="text" class="form-control" id="dni"
-								placeholder="dni" th:value="${dni}" th:field="*{dni}" />
+							<input required="required" th:maxlength="9" type="text" class="form-control" id="dni" placeholder="dni" th:field="*{dni}"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2">Email</label>
 						<div class="col-sm-10">
-							<input required="required" type="email" class="form-control" id="Email"
-								placeholder="Email" th:value="${email}" th:field="*{email}" />
+							<input required="required" type="email" class="form-control" id="email"
+								placeholder="Email" th:field="*{email}" />
 						</div>
 					</div>
 					<div class="form-group">
